@@ -16,9 +16,14 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import static com.alizo.zTest.constants.SwitchEnum.*;
 
@@ -192,5 +197,21 @@ public abstract class HttpControllerTest extends ConvertControllerTest{
 
     public String getRequestUrl(String api) {
         return address + getHeadUrl() + api;
+    }
+
+    public static void concurrentExec(Callable callable, int count) {
+        List<Future<?>> list = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            list.add(ConcurrentUtils.submitTask(callable));
+        }
+        list.forEach(e->{
+            try {
+                System.out.println(e.get());
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            } catch (ExecutionException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 }
