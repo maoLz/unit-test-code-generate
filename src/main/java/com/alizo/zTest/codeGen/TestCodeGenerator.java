@@ -264,7 +264,7 @@ public class TestCodeGenerator {
             initParam(temp);
         }
 
-        if(!t2.isEmpty()){
+        if(t2.length() > 0){
             param = param + "?" +t2.substring(0,t2.length()-1);
         }
         code.append("\t\tgetL(\"").append(param).append("\");\n");
@@ -292,7 +292,7 @@ public class TestCodeGenerator {
             initParam(temp);
         }
 
-        if(!t2.isEmpty()){
+        if(t2.length() > 0){
             param = param + "?" +t2.substring(0,t2.length()-1);
         }
         code.append("\t\tgetL(\"").append(param).append("\");\n");

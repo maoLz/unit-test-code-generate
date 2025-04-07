@@ -3,7 +3,6 @@ package com.alizo.zTest.base;
 import com.alizo.zTest.ConfigConstant;
 import com.alizo.zTest.DefaultBaseControllerTest;
 import com.alizo.zTest.codeGen.TestCodeGenerator;
-import com.example.demoapi.DemoApiApplication;
 import com.sun.mail.imap.AppendUID;
 import org.apache.poi.ss.formula.functions.T;
 

@@ -3,7 +3,6 @@ package com.alizo.zTest.codeGen;
 
 import com.alizo.zTest.ConfigConstant;
 import com.alizo.zTest.DefaultBaseControllerTest;
-import com.example.demoapi.DemoApiApplication;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -36,7 +35,7 @@ public class TestCode {
 
     @Test
     public void 生成单个文件代码(){
-        Class<?> controllerClazz = DemoApiApplication.class;
+        Class<?> controllerClazz = null;
         TestCodeGenerator testCodeGenerator = new TestCodeGenerator(controllerClazz);
         String property = System.getProperty("user.dir");
         testCodeGenerator.location = property + ConfigConstant.location;

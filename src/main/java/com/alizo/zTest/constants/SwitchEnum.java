@@ -3,6 +3,7 @@ package com.alizo.zTest.constants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用于测试某些特殊流程分支
@@ -19,6 +20,6 @@ public enum SwitchEnum {
 
     public static List<String> names = new ArrayList<>();
     static {
-        names.addAll(Arrays.asList(SwitchEnum.values()).stream().map(SwitchEnum::name).toList());
+        names.addAll(Arrays.asList(SwitchEnum.values()).stream().map(SwitchEnum::name).collect(Collectors.toList()));
     }
 }
